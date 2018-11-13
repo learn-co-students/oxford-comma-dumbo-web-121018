@@ -1,17 +1,15 @@
 def oxford_comma(array)
   string = ""
-  counter = 0
-  while counter < array.length
-    if counter == 0
-      string += array[0]
-    elsif array.length == 2 && counter == 1
-      string += " and #{array[counter]}"
-    elsif counter == array.length - 1
-      string += ", and #{array[counter]}"
+  array.each_with_index do  |ele, idx|
+    if idx == 0
+      string += ele
+    elsif array.length == 2 && idx == 1
+      string += " and #{ele}"
+    elsif idx == array.length - 1
+      string += ", and #{ele}"
     else
-      string += ", #{array[counter]}"
+      string += ", #{ele}"
     end
-    counter += 1
   end
   return string
 end
